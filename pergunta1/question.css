@@ -14,7 +14,7 @@ fieldset {
   legend {
     margin-bottom: 32px;
 
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 600;
     font-family:
       'Inria sans',
@@ -34,8 +34,8 @@ fieldset {
 
 .options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+
   gap: 4px;
   max-width: 100%;
 }
@@ -50,6 +50,7 @@ fieldset {
   border: solid white 2px;
   background-color: white;
   cursor: pointer;
+  margin: 0 auto;
 
   input[type='radio'] {
     position: absolute;
@@ -187,8 +188,16 @@ dialog {
     button {
       background-color: transparent;
 
-      &:is(:hover, :hover ~ button) svg {
+      &:is(:hover, :hover ~ button, .filled, .filled ~ button) svg {
         fill: var(--color-secondary);
+      }
+
+      &:is(.filled, .filled ~ button) {
+        cursor: initial;
+
+        &:hover {
+          filter: none;
+        }
       }
     }
 
@@ -197,5 +206,32 @@ dialog {
       color: var(--color-secondary);
       fill: none;
     }
+  }
+}
+
+@media (min-width: 1024px) {
+  fieldset legend {
+    font-size: 32px;
+  }
+
+  .options {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.slide-out {
+  animation: funny-slide-out-animation infinite
+    cubic-bezier(0, 0.64, 0.27, 1.39) 1s;
+}
+
+@keyframes funny-slide-out-animation {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(300px);
+    opacity: 0.15;
   }
 }
