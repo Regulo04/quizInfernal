@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     radioInput.checked = true;
                     
                     localStorage.setItem('question-2-answer', radioInput.value);
-                    console.log('Resposta salva:', radioInput.value);
                     
                     nextBtn.disabled = false;
                 }
