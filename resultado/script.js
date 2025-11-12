@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const subscribedSection = document.querySelector('.subscribed');
 
   // Numero aleatorio entre 5 e 10 segundos
-  const LOADING_DURATION = (Math.floor(Math.random() * 5000) + 5000) * 0;
+  const LOADING_DURATION = Math.floor(Math.random() * 5000) + 5000;
 
   let loadingTimeoutId;
 
