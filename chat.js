@@ -1,3 +1,5 @@
+const documentTitle = document.title;
+
 let notificationsCounter =
   Number(localStorage.getItem('notifications-counter')) || 1;
 
@@ -55,6 +57,8 @@ function randomNotifications(chat, sound) {
     );
 
     localStorage.setItem('notifications-counter', String(notificationsCounter));
+
+    document.title = `❗🔴 Você possui ${notificationsCounter} notificações! | ${documentTitle}`;
 
     randomNotifications(chat, sound);
   }, getNextInterval());
