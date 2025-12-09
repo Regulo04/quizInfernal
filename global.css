@@ -1,3 +1,5 @@
+@import url('chat.css');
+
 :root {
   --color-primary: #fadede;
   --color-secondary: #ff758f;
@@ -83,7 +85,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--color-secondary);
-  color: var(--color-quaternary);
+  color: var(--color-primary);
   padding: 20px;
 }
 
@@ -108,7 +110,7 @@ body {
 
 .header-title a {
   text-decoration: none;
-  color: var(--color-quaternary);
+  color: white;
   cursor: pointer;
 }
 
@@ -116,7 +118,7 @@ body {
 .header-title a:focus,
 .header-title a:active {
   text-decoration: none;
-  color: var(--color-quaternary);
+  color: var(--color-primary);
 }
 
 .fire-icon {
@@ -141,6 +143,7 @@ body {
 .nav-link {
   font-size: 18px;
   font-weight: 500;
+  color: white;
 }
 
 .nav {
@@ -455,4 +458,16 @@ body {
 
 .zoom-in-bounce {
   animation: zoom-in cubic-bezier(0.16, 0.27, 0, 1.73) 350ms;
+}
+  
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
