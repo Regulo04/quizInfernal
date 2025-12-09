@@ -8,11 +8,10 @@ const pics = {
 const maxHeight = window.innerHeight;
 const maxWidth = window.innerWidth;
 const picKeys = Object.keys(pics);
-picKeys.push('falhou');
 
 const resultadoFake2 = document.getElementById('fakeResultado2');
 const resultadoFake1 = document.getElementById('fakeResultado1');
-resultadoFake1.addEventListener('click', () => moveFake(resultadoFake1));
+resultadoFake1.addEventListener('mouseover', () => moveFake(resultadoFake1));
 resultadoFake2.addEventListener('click', () => moveFake(resultadoFake2));
 
 function setupResult() {
@@ -26,7 +25,7 @@ function setupResult() {
   resultadoReal.style.display = 'none';
   setTimeout(function () {
   resultadoReal.style.display = 'block';
-  }, 15000);
+  }, 15);
 
   const a = Math.floor(Math.random() * picKeys.length);
   const selectedPic = picKeys[a];
@@ -45,19 +44,24 @@ function moveFake(button) {
   button.style.left = left+"px";
 }
 function getResult(resultadoReal, textoRes, img, selectedPic) {
- if (selectedPic !== 'falhou') {
+ if (selectedPic !== 'Falha') {
   resultadoReal.textContent = "Você tem certeza que quer ver seu resultado?";
 
   resultadoReal.addEventListener('click', function () {
+    resultadoReal.textContent = "Clica de Novo se REALMENTE quer o resultado";
+    resultadoReal.addEventListener('click', function() {
     img.src = pics[selectedPic];
     textoRes.textContent = 'Parabéns você é um ' + selectedPic;
     resultadoReal.style.display = 'none';
+    })
+
   });
-  } else {
+  }
+    else {
     resultadoReal.addEventListener('click', function () {
       setTimeout(function () { }, 6000);
       img.src = pics[selectedPic];
       textoRes.textContent = 'Parabens você é uma Falha ';
     });
-  }
+  } 
 }
