@@ -18,50 +18,50 @@ function setupResult() {
   const img = document.createElement('img');
   img.id = 'imagemResultado';
   img.style.maxWidth = '500px';
-
+  img.style.width = '100%'
   const textoRes = document.getElementById('textoResultado');
-  
+
   const resultadoReal = document.getElementById('resultadoReal');
   resultadoReal.style.display = 'none';
   setTimeout(function () {
-  resultadoReal.style.display = 'block';
+    resultadoReal.style.display = 'block';
   }, 15);
 
   const a = Math.floor(Math.random() * picKeys.length);
   const selectedPic = picKeys[a];
 
   textoRes.after(img);
-  resultadoReal.addEventListener('click', function () {getResult(resultadoReal, textoRes, img, selectedPic);});
-  
- 
+  resultadoReal.addEventListener('click', function () { getResult(resultadoReal, textoRes, img, selectedPic); });
+
+
 }
 function moveFake(button) {
-  
+  tamBotao = button.getBoundingClientRect()
   button.style.position = "absolute";
-  const top = (Math.random()*maxHeight )/2;
-  const left = (Math.random()*maxWidth )/2;
-  button.style.top = top+"px";
-  button.style.left = left+"px";
+  const top = (Math.random() * (maxHeight - 2 * tamBotao.height));
+  const left = (Math.random() * (maxWidth - 2 * tamBotao.width));
+  button.style.top = top + "px";
+  button.style.left = left + "px";
 }
 function getResult(resultadoReal, textoRes, img, selectedPic) {
- if (selectedPic !== 'Falha') {
-  resultadoReal.textContent = "Você tem certeza que quer ver seu resultado?";
+  if (selectedPic !== 'Falha') {
+    resultadoReal.textContent = "Você tem certeza que quer ver seu resultado?";
 
-  resultadoReal.addEventListener('click', function () {
-    resultadoReal.textContent = "Clica de Novo se REALMENTE quer o resultado";
-    resultadoReal.addEventListener('click', function() {
-    img.src = pics[selectedPic];
-    textoRes.textContent = 'Parabéns você é um ' + selectedPic;
-    resultadoReal.style.display = 'none';
-    })
+    resultadoReal.addEventListener('click', function () {
+      resultadoReal.textContent = "Clica de Novo se REALMENTE quer o resultado";
+      resultadoReal.addEventListener('click', function () {
+        img.src = pics[selectedPic];
+        textoRes.textContent = 'Parabéns você é um ' + selectedPic;
+        resultadoReal.style.display = 'none';
+      })
 
-  });
+    });
   }
-    else {
+  else {
     resultadoReal.addEventListener('click', function () {
       setTimeout(function () { }, 6000);
       img.src = pics[selectedPic];
       textoRes.textContent = 'Parabens você é uma Falha ';
     });
-  } 
+  }
 }

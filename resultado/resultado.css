@@ -1,5 +1,17 @@
-.resultadoReal{
-    font-size: 4px;
+#fakeResultado1{
+  padding: 16px 8px;
+  background-color: var(--color-secondary);
+  color: white;
+  border-color: aqua;
+}
+#fakeResultado2{
+  padding: 20px 12px;
+  background-color: var(--color-quaternary);
+  color: pink;
+  border-color: #c62828;
+}
+#resultadoReal{
+    font-size: 8px;
     font-weight: 700;
     color: var(--color-tertiary);
     margin-top: 5px;
