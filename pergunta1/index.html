@@ -27,25 +27,25 @@
 				<button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
 				<nav class="header-nav" id="headerNav">
 					<a href="../index.html" class="nav-link">Início</a>
-					<a href="../about.html" class="nav-link">About</a>
+					<a href="../about/about.html" class="nav-link">About</a>
 				</nav>
 			</div>
 		</header>
 
-		<nav class="nav nav-left">
+		<aside class="nav nav-left" data-hell>
 			<div class="ad ad-template1">
-				<img src="../assets/add/add1.png" alt="Anúncio">
+				<img src="https://i.imgur.com/Fh5Syga.png" alt="Anúncio">
 				<p>Descubra algo incrível!</p>
 			</div>
 			<div class="ad ad-template2">
-				<img src="../assets/add/add2.png" alt="Anúncio">
+				<img src="https://i.imgur.com/lPq1FVW.png" alt="Anúncio">
 				<p>Oferta especial para você</p>
 			</div>
 			<div class="ad ad-template3">
-				<img src="../assets/add/add3.png" alt="Anúncio">
+				<img src="https://i.imgur.com/msyBXm6.jpeg" alt="Anúncio">
 				<p>Não perca esta oportunidade</p>
 			</div>
-		</nav>
+		</aside>
 
 		<main class="main">
 			<form>
@@ -57,7 +57,7 @@
 							<input id="theme-spider" type="radio" name="theme" value="homem-aranha">
 							<div class="option-image">
 								<picture>
-									<img src="../assets/question1/miranha.png" alt="Festa temática do Homem-aranha">
+									<img src="https://i.imgur.com/WsQmPNd.png" alt="Festa temática do Homem-aranha">
 								</picture>
 							</div>
 							<label class="option-label" for="theme-spider">
@@ -69,7 +69,7 @@
 							<input id="theme-barbie" type="radio" name="theme" value="barbie">
 							<div class="option-image">
 								<picture>
-									<img src="../assets/question1/barbie.png" alt="Festa temática da Barbie">
+									<img src="https://i.imgur.com/HBIxrSt.png" alt="Festa temática da Barbie">
 								</picture>
 							</div>
 							<label class="option-label" for="theme-barbie">
@@ -81,7 +81,7 @@
 							<input id="theme-shark" type="radio" name="theme" value="baby-shark">
 							<div class="option-image">
 								<picture>
-									<img src="../assets/question1/baby-shark.png" alt="Festa temática do Baby Shark">
+									<img src="https://i.imgur.com/jRgdoLS.png" alt="Festa temática do Baby Shark">
 								</picture>
 							</div>
 							<label class="option-label" for="theme-shark">
@@ -93,7 +93,7 @@
 							<input id="theme-circus" type="radio" name="theme" value="circo">
 							<div class="option-image">
 								<picture>
-									<img src="../assets/question1/circo.png" alt="Festa temática de circo">
+									<img src="https://i.imgur.com/3EiWaRh.png" alt="Festa temática de circo">
 								</picture>
 							</div>
 							<label class="option-label" for="theme-circus">
@@ -104,14 +104,14 @@
 				</fieldset>
 			</form>
 
-			<a href="../pergunta2/index.html" class="next-question-link">Próxima pergunta</a>
+			<a href="../pergunta2/index.html" class="next-question-link" id="next-question-link">Próxima pergunta</a>
 		</main>
 
-		<ul class="notifications">
+		<ul class="notifications" data-hell>
 		</ul>
 
-		<dialog id="feedback-popup">
-			<div class="dialog-content">
+		<dialog id="feedback-popup" data-hell>
+			<div class="dialog-content zoom-in-bounce">
 				<h2>Você está gostando do quiz???</h2>
 				<div class="buttons">
 					<button type="button">Sim</button>
@@ -120,8 +120,8 @@
 			</div>
 		</dialog>
 
-		<dialog id="rating-popup">
-			<div class="dialog-content">
+		<dialog id="rating-popup" data-hell>
+			<div class="dialog-content zoom-in-bounce">
 				<h2>Avalie com <span>5 estrelas</span>
 					para continuar</h2>
 				<div class="buttons stars">
@@ -134,22 +134,22 @@
 			</div>
 		</dialog>
 
-		<nav class="nav nav-right">
+		<aside class="nav nav-right" data-hell>
 			<div class="ad ad-template4">
-				<img src="../assets/add/add4.png" alt="Anúncio">
+				<img src="https://i.imgur.com/7qFyG4L.png" alt="Anúncio">
 				<p>Aproveite agora!</p>
 			</div>
 			<div class="ad ad-template1">
-				<img src="../assets/add/add1.png" alt="Anúncio">
+				<img src="https://i.imgur.com/Fh5Syga.png" alt="Anúncio">
 				<p>Descubra algo incrível!</p>
 			</div>
-		</nav>
+		</aside>
 
 		<footer class="footer">
 			<div class="footer-content">
 				<div class="footer-section">
 					<h3>Sobre</h3>
-					<a href="about.html">Quem Somos</a>
+					<a href="../about/about.html">Quem Somos</a>
 				</div>
 				<div class="footer-section">
 					<h3>Links Úteis</h3>
@@ -167,103 +167,112 @@
 			</div>
 		</footer>
 
+		<script src="../cookies.js"></script>
+		<script src="../hell.js"></script>
+		<script src="../randomizer.js"></script>
 		<script src="script.js"></script>
+		<script src="../chat.js"></script>
 
 		<script type="module">
-			const { fakerPT_BR: faker } = await import('https://esm.sh/@faker-js/faker');
-			
-			const MIN_INTERVAL_MS = 500;
-			const MAX_INTERVAL_MS = 6 * 1000;
-			
-			createNotificationsRandomly();
-			
-			function getNextInterval() {
-				return Math.max(MIN_INTERVAL_MS, Math.random() * MAX_INTERVAL_MS);
-			}
-			
-			function createNotificationsRandomly() {
-				createNotification();
-				setTimeout(createNotificationsRandomly, getNextInterval());
-			}
-			
-			function createNotification() {
-				const randomAvatar = faker.image.avatar();
-				const randomName = faker.person.firstName();
+			hell(async  () => {
+				// NOTE: essa biblioteca é utilizada para gerar dados aleatórios de pessoas nas notificações
+				const { fakerPT_BR: faker } = await import('https://esm.sh/@faker-js/faker');
 				
-				const notification = document.createElement('article');
-				notification.classList.add('notification');
+				const MIN_INTERVAL_MS = 500;
+				const MAX_INTERVAL_MS = 6 * 1000;
 				
-				const notificationsContainer = document.querySelector('ul.notifications');
-				const listItem = document.createElement('li');
-				listItem.append(notification);
-				notificationsContainer.append(listItem);
+				createNotificationsRandomly();
 				
-				const imageContainer = document.createElement('div');
-				notification.append(imageContainer);
+				// TODO: atualizar título da página de maneira 🔥 infernal 🔥
 				
-				const image = document.createElement('img');
-				imageContainer.append(image);
-				image.src = randomAvatar;
+				function getNextInterval() {
+					return Math.max(MIN_INTERVAL_MS, Math.random() * MAX_INTERVAL_MS);
+				}
 				
-				const textContainer = document.createElement('div');
-				notification.append(textContainer);
-				textContainer.classList.add('text-container');
+				function createNotificationsRandomly() {
+					createNotification();
+					setTimeout(createNotificationsRandomly, getNextInterval());
+				}
 				
-				const text = document.createElement('p');
-				textContainer.append(text);
-				
-				const nameSpan = document.createElement('span');
-				nameSpan.classList.add('name');
-				nameSpan.textContent = randomName;
-				text.append(nameSpan);
-				
-				const contentSpan = document.createElement('span');
-				contentSpan.textContent = getNotificationText();
-				text.append(contentSpan);
-				
-				setTimeout(() => {
-					notification.classList.add('slide-out');
-					notification.classList.add('exiting');
+				function createNotification() {
+					const randomAvatar = faker.image.avatar();
+					const randomName = faker.person.firstName();
 					
-					notification.addEventListener('animationend', () => {
-						listItem.remove();
-						});
-						}, 5 * 1000);
-					}
+					const notification = document.createElement('article');
+					notification.classList.add('notification');
 					
-					function getNotificationText() {
-						const common = [
-						'uma coxinha!',
-						'um quibe!',
-						'uma empadinha!',
-						'uma coxinha sem recheio :(',
-						'uma empadinha seca :(',
-						'uma bolinha de queijo!',
-						'um pastelzinho!',
-						'uma esfirra!',
-						];
+					const notificationsContainer = document.querySelector('ul.notifications');
+					const listItem = document.createElement('li');
+					listItem.append(notification);
+					notificationsContainer.append(listItem);
+					
+					const imageContainer = document.createElement('div');
+					notification.append(imageContainer);
+					
+					const image = document.createElement('img');
+					imageContainer.append(image);
+					image.src = randomAvatar;
+					
+					const textContainer = document.createElement('div');
+					notification.append(textContainer);
+					textContainer.classList.add('text-container');
+					
+					const text = document.createElement('p');
+					textContainer.append(text);
+					
+					const nameSpan = document.createElement('span');
+					nameSpan.classList.add('name');
+					nameSpan.textContent = randomName;
+					text.append(nameSpan);
+					
+					const contentSpan = document.createElement('span');
+					contentSpan.textContent = getNotificationText();
+					text.append(contentSpan);
+					
+					setTimeout(() => {
+						notification.classList.add('slide-out');
+						notification.classList.add('exiting');
 						
-						const rare = [
-						'resolveu o aquecimento global!',
-						'foi recrutado pela NASA!',
-						'ganhou um Nobel!',
-						'TRANSCENDEU!',
-						];
-						
-						const base = ' completou o quiz e ';
-						
-						const isRare = Math.random() < 0.15;
-						
-						if (isRare) {
-							return base + rare[Math.floor(Math.random() * rare.length)];
+						notification.addEventListener('animationend', () => {
+							listItem.remove();
+							});
+							}, 5 * 1000);
 						}
 						
-						return (
-						base +
-						'descobriu que é ' +
-						common[Math.floor(Math.random() * common.length)]
-						);
-					}
+						function getNotificationText() {
+							const common = [
+							'uma coxinha!',
+							'um quibe!',
+							'uma empadinha!',
+							'uma coxinha sem recheio :(',
+							'uma empadinha seca :(',
+							'uma bolinha de queijo!',
+							'um pastelzinho!',
+							'uma esfirra!',
+							];
+							
+							const rare = [
+							'resolveu o aquecimento global!',
+							'foi recrutado pela NASA!',
+							'ganhou um Nobel!',
+							'TRANSCENDEU!',
+							];
+							
+							const base = ' completou o quiz e ';
+							
+							const isRare = Math.random() < 0.15;
+							
+							if (isRare) {
+								return base + rare[Math.floor(Math.random() * rare.length)];
+							}
+							
+							return (
+							base +
+							'descobriu que é ' +
+							common[Math.floor(Math.random() * common.length)]
+							);
+						}
+						})
 		</script>
 
 		<!-- SVGs -->

@@ -1,11 +1,15 @@
-const options = document.querySelectorAll('.option');
 const optionsWrapper = document.querySelector('.options');
+
+shuffleOptions(optionsWrapper);
+
+const options = document.querySelectorAll('.option');
 const inputs = document.querySelectorAll('input[type="radio"]');
 const ratingPopup = document.querySelector('#rating-popup');
 const feedbackPopup = document.querySelector('#feedback-popup');
 
+hell(setupAnnoyingPopup);
+setupNextLink();
 setupAnswerListeners();
-setupAnnoyingPopup();
 setupValidation();
 
 function setupAnswerListeners() {
@@ -68,7 +72,10 @@ function setupAnnoyingPopup() {
         thanksMessage.style.fontSize = '24px';
         content.appendChild(thanksMessage);
 
-        setTimeout(() => content.classList.add('weird-slide-out'), 4 * 1000);
+        setTimeout(() => {
+          content.classList.remove('zoom-in-bounce');
+          content.classList.add('weird-slide-out');
+        }, 4 * 1000);
 
         return setTimeout(() => ratingPopup.removeAttribute('open'), 5 * 1000);
       }
