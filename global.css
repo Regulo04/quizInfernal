@@ -85,7 +85,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--color-secondary);
-  color: var(--color-quaternary);
+  color: var(--color-primary);
   padding: 20px;
 }
 
@@ -110,7 +110,7 @@ body {
 
 .header-title a {
   text-decoration: none;
-  color: var(--color-quaternary);
+  color: white;
   cursor: pointer;
 }
 
@@ -118,7 +118,7 @@ body {
 .header-title a:focus,
 .header-title a:active {
   text-decoration: none;
-  color: var(--color-quaternary);
+  color: var(--color-primary);
 }
 
 .fire-icon {
@@ -143,6 +143,7 @@ body {
 .nav-link {
   font-size: 18px;
   font-weight: 500;
+  color: white;
 }
 
 .nav {
