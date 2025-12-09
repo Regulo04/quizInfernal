@@ -9,6 +9,10 @@
   --color-white: #fff0f3;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;

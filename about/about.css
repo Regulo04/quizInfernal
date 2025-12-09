@@ -80,6 +80,7 @@
     margin: 20px auto; 
     max-width: 500px;
     transition: transform 0.3s ease;
+    width: 100%;
 }
 .telas img:hover {
     transform: scale(1.05);
@@ -104,4 +105,10 @@
 .back-to-start:hover {
     background-color: #fb2828;
     transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .container-content {
+        padding: 0 8px;
+    }
 }
