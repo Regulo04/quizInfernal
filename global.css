@@ -396,12 +396,74 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas:
       'header'
+      'ads-top'
       'main'
+      'ads-bottom'
       'footer';
   }
 
+  .nav-left {
+    grid-area: ads-top;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--color-white);
+    overflow-x: auto;
+  }
+
+  .nav-right {
+    grid-area: ads-bottom;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--color-white);
+    overflow-x: auto;
+  }
+
   .nav {
-    display: none;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .ad {
+    display: flex;
+    flex-direction: row;
+    min-width: 200px;
+    flex-shrink: 0;
+    max-width: none;
+  }
+
+  .ad img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .ad p {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-white);
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary),
+      var(--color-tertiary)
+    );
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .ad-template1,
+  .ad-template2,
+  .ad-template3,
+  .ad-template4 {
+    min-width: 200px;
   }
 
   .header {
@@ -441,6 +503,7 @@ body {
     text-align: center;
   }
 }
+
 
 @media (min-width: 1024px) {
   .options {
