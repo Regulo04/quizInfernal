@@ -22,7 +22,8 @@ function setupAnswerListeners() {
 
   inputs.forEach((input) =>
     input.addEventListener('click', () => {
-      localStorage.setItem('question-1-answer', input.value);
+
+      CookieStorage.store('question-1-answer', input.value);
     }),
   );
 }

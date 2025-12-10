@@ -1,4 +1,4 @@
-const N_QUESTIONS = 2;
+const N_QUESTIONS = 3;
 const RESULTS_ID = -1;
 
 /**
@@ -38,17 +38,20 @@ function getNextQuestionNumber() {
 }
 
 function setupNextLink(anchorSelector = '#next-question-link') {
-  if (!canUseCookies()) {
-    return;
-  }
+ // if (!canUseCookies()) {
+  //  return;
+  //}
 
   const nextQuestionLink = document.querySelector(anchorSelector);
-
+  console.log("Link",nextQuestionLink);
   const nextQuestionNumber = getNextQuestionNumber();
 
   if (nextQuestionNumber === RESULTS_ID) {
     nextQuestionLink.href = '../resultado/index.html';
+    console.log("Numero Pergunta Result",nextQuestionNumber);
+    
   } else {
+    console.log("Numero Pergunta",nextQuestionNumber);
     nextQuestionLink.href = `../pergunta${nextQuestionNumber}/index.html`;
   }
 

@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const quizForm = document.getElementById('quiz-form');
 
     const baseItems = [
-        { name: "Língua de Sogra", img: "../assets/pergunta3/lingua-sogra.webp" },
-        { name: "Bala de Goma", img: "../assets/pergunta3/bala-goma.webp" },
-        { name: "Pião de Madeira", img: "../assets/pergunta3/piao.webp" },
-        { name: "Dentadura de Vampiro", img: "../assets/pergunta3/dentadura.webp" },
-        { name: "Anel de Plástico", img: "../assets/pergunta3/anel-plastico.webp" },
+        { value: 1,name: "Língua de Sogra", img: "../assets/pergunta3/lingua-sogra.webp" },
+        {value: 2, name: "Bala de Goma", img: "../assets/pergunta3/bala-goma.webp" },
+        { value: 3,name: "Pião de Madeira", img: "../assets/pergunta3/piao.webp" },
+        { value: 4,name: "Dentadura de Vampiro", img: "../assets/pergunta3/dentadura.webp" },
+        {value: 5, name: "Anel de Plástico", img: "../assets/pergunta3/anel-plastico.webp" },
     ];
 
     let itemPool = [];
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const uniqueId = 'opt-' + Math.random().toString(36).substr(2, 9);
         
         div.innerHTML = `
-            <input id="${uniqueId}" type="radio" name="brinde" value="${item.name}">
+            <input id="${uniqueId}" type="radio" name="brinde" value="${item.value}">
             <div class="option-image">
                 <img src="${item.img}" alt="${item.name}">
             </div>
@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const input = div.querySelector('input');
             input.checked = true;
             selectedValue = input.value;
-
+            CookieStorage.store('question-3-answer',selectedValue);
             localStorage.setItem('question-3-answer', selectedValue);
-            nextBtn.disabled = false;
+            
         });
 
         return div;
@@ -58,13 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    addBatch(12);
+    addBatch(5);
 
-    listContainer.addEventListener('scroll', () => {
-        if (listContainer.scrollTop + listContainer.clientHeight >= listContainer.scrollHeight - 100) {
-            addBatch(6);
-        }
-    });
+    
 
     quizForm.addEventListener('submit', function (event) {
         const selectedOption = document.querySelector(
@@ -74,19 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         alert("Escolha uma opção!");
         }
+        
     });
 
     hell(() => {
-        document.documentElement.addEventListener('click', function () {
-        if (adModal.classList.contains('active')) return;
-
-        if (canTriggerClickAd) {
-            canTriggerClickAd = false;
-            window.open('https://example.com/fake-ad-simulation', '_blank');
-            setTimeout(function () {
-            canTriggerClickAd = true;
-            }, adCooldown);
+        addBatch(7);
+        listContainer.addEventListener('scroll', () => {
+        if (listContainer.scrollTop + listContainer.clientHeight >= listContainer.scrollHeight - 100) {
+            addBatch(6);
         }
-        });
+    });
     });
 });
